@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 interface NavBarProps {
   onMenuClick?: () => void;
@@ -32,7 +34,7 @@ export function NavBar({ onMenuClick }: NavBarProps) {
       <div className="flex justify-between items-center mx-auto">
         {/* Logo and Search */}
         <div className="flex items-center">
-          <a href="/" className="flex items-center mr-6">
+          <Link href="/" className="flex items-center mr-6">
             <svg className="h-8 w-8 mr-2" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M30.1516 1.15456C30.1516 1.15456 19.0957 -0.326663 11.5957 7.17334C4.09567 14.6733 4.59567 24.7733 4.59567 24.7733" stroke="url(#paint0_linear_0_1)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M4.59567 24.7734C4.59567 24.7734 15.6516 26.2546 23.1516 18.7546C30.6516 11.2546 30.1516 1.15456 30.1516 1.15456" stroke="url(#paint1_linear_0_1)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
@@ -53,7 +55,7 @@ export function NavBar({ onMenuClick }: NavBarProps) {
               </defs>
             </svg>
             <span className="self-center text-xl font-semibold whitespace-nowrap">Flowbite</span>
-          </a>
+          </Link>
           
           <div className="hidden md:flex relative">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -99,8 +101,13 @@ export function NavBar({ onMenuClick }: NavBarProps) {
           </button>
           
           {/* User Avatar */}
-          <div className="w-8 h-8 rounded-full overflow-hidden bg-blue-200">
-            <img src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="User avatar" className="w-full h-full object-cover" />
+          <div className="w-8 h-8 rounded-full overflow-hidden bg-blue-200 relative">
+            <Image 
+              src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" 
+              alt="User avatar" 
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
         
@@ -129,8 +136,13 @@ export function NavBar({ onMenuClick }: NavBarProps) {
                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
               </button>
-              <div className="w-8 h-8 rounded-full overflow-hidden bg-blue-200">
-                <img src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="User avatar" className="w-full h-full object-cover" />
+              <div className="w-8 h-8 rounded-full overflow-hidden bg-blue-200 relative">
+                <Image 
+                  src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" 
+                  alt="User avatar" 
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>

@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Flowbite UI
 
-## Getting Started
+Figmaデザインを元にしたFlowbiteコンポーネントを使用したUIの実装です。
 
-First, run the development server:
+## デモページ
+
+GitHub Pages: https://[YOUR_USERNAME].github.io/figma_mcp/
+
+## 開発方法
 
 ```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# ビルド
+npm run build
+
+# 静的ファイルの生成（GitHub Pages用）
+npm run export
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## GitHub Pagesへのデプロイ方法
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 自動デプロイ（GitHub Actions）
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. リポジトリの "Settings" タブに移動
+2. 左メニューから "Pages" を選択
+3. "Source" セクションで "GitHub Actions" を選択
+4. メインブランチにプッシュすると自動的にデプロイされます
 
-## Learn More
+### 手動デプロイ
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# 静的ファイルを生成
+npm run export
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# 生成されたoutディレクトリをコミットしてプッシュ
+git add out/
+git commit -m "Deploy to GitHub Pages"
+git push origin main
+```

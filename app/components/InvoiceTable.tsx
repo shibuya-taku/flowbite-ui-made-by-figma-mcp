@@ -229,7 +229,7 @@ export function InvoiceTable() {
 
   // ソート機能を適用
   const sortedInvoices = React.useMemo(() => {
-    let sortableItems = [...filteredInvoices];
+    const sortableItems = [...filteredInvoices];
     if (sortConfig.key && sortConfig.direction) {
       sortableItems.sort((a, b) => {
         // 各カラムごとに適切なソート方法を適用
@@ -244,8 +244,18 @@ export function InvoiceTable() {
         
         if (sortConfig.key === 'startDate' || sortConfig.key === 'dueDate') {
           // 日付のソート: DD MMM YYYY形式を日付オブジェクトに変換して比較
-          const dateA = new Date(a[sortConfig.key as keyof typeof a]);
-          const dateB = new Date(b[sortConfig.key as keyof typeof b]);
+          const parseDate = (dateStr: string) => {
+            const [day, month, year] = dateStr.split(' ');
+            const monthMap: {[key: string]: number} = {
+              'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+              'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+            };
+            return new Date(parseInt(year), monthMap[month], parseInt(day));
+          };
+          
+          const dateA = parseDate(a[sortConfig.key as keyof typeof a] as string);
+          const dateB = parseDate(b[sortConfig.key as keyof typeof b] as string);
+          
           return sortConfig.direction === 'asc' 
             ? dateA.getTime() - dateB.getTime() 
             : dateB.getTime() - dateA.getTime();
