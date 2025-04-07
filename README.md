@@ -4,7 +4,7 @@ Figmaデザインを元にしたFlowbiteコンポーネントを使用したUI�
 
 ## デモページ
 
-GitHub Pages: https://[YOUR_USERNAME].github.io/figma_mcp/
+GitHub Pages: https://shibuya-taku.github.io/flowbite-ui-made-by-figma-mcp/
 
 ## 開発方法
 
