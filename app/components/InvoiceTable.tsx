@@ -300,8 +300,8 @@ export function InvoiceTable() {
             </div>
           </div>
           
-          <div className="flex items-center space-x-3 md:space-x-4">
-            <div className="relative">
+          <div className="flex items-center space-x-4 md:space-x-4">
+            <div className="relative ml-4">
               <button 
                 className="px-4 py-2 text-sm font-medium text-blue-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 inline-flex items-center"
                 onClick={() => toggleDropdown('filters')}
